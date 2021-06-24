@@ -6,13 +6,37 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
-            <table class="table table-light table-striped" id="myTable" style="width: 100%;"></table>
+            <table class="table" id="myTable" width="100%">
+              <thead class="bg-warning">
+                  <tr>
+                      <td scope="col">Options</td>
+                      <td scope="col">Name</td>
+                      <td scope="col">Lastname</td>
+                      <td scope="col">Start Date</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <multiple name="employee_mr">
+                          <tr scope="row">
+                              <td width="50px">
+                                  <div class="btn-group" role="group" aria-label="Options">
+                                      @employee_mr.edit_button;noquote@
+                                      @employee_mr.delete_button;noquote@
+                                  </div>
+                              </td>
+                              <td>@employee_mr.name@</td>
+                              <td>@employee_mr.lastname@</td>
+                              <td>@employee_mr.start_date@</td>
+                          </tr>  
+                  </multiple>
+              </tbody>    
+          </table>
         </div>
       </div>
       <div class="row"> 
           <div class="col-md-12 text-center">
                <!-- Button trigger modal -->
-              <button type="button" class="btn btn-warning" onclick="new_salary()">
+              <button type="button" class="btn btn-warning" onclick="new_item()">
                 <i class="fas fa-plus"></i>&nbsp; Añadir Empleado
               </button>
           </div>
@@ -35,3 +59,68 @@
     </div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            responsive: true
+        });
+    });
+
+    function new_item() {
+        $('#dialog-body').load('@form_url@', function() {
+             // alert('Load was performed.');
+        });
+        $('#dialog').modal({show:true});
+    }
+
+    async function complete_item(item_id) {
+        $.ajax({
+            type: "GET",
+            url: "@form_url@?item_id="+item_id+"&new_status=c",
+            success: function (data, textStatus, jqXHR) {
+                
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error Loading: "+errorThrown)
+            },
+            always: function (jqXHR, textStatus, errorThrown) {
+                alert("always Loading: " + jqXHR)
+            },
+        });
+        setTimeout(function() { 
+            window.location.reload();
+        }, 500);
+    }
+
+    function delete_item( item_id ) {
+        Swal.fire({
+            title: 'Do you want to delete this item?',
+            showCancelButton: true,
+            confirmButtonText: `Yes`,
+            icon: 'warning',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   post_delete(item_id);
+                }
+            })  
+    }
+
+    function post_delete(item_id) {
+        $.ajax({
+            type: "POST",
+            url: "@delete_url@",
+            data: {item_id: item_id},
+            success: function (data, textStatus, jqXHR) {
+                window.location.reload();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Error Loading: "+errorThrown)
+            }
+        });
+        setTimeout(function() { 
+            window.location.reload();
+        }, 500);
+    }
+
+</script>
