@@ -31,7 +31,7 @@
 <body>
   <div class="wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index"> <img src="https://image.flaticon.com/icons/png/512/2891/2891526.png" width="30" height="30" alt="">&nbsp; Planilla de Empleados</a>
+      <a class="navbar-brand" href="@main_url@"> <img src="https://image.flaticon.com/icons/png/512/2891/2891526.png" width="30" height="30" alt="">&nbsp; Planilla de Empleados</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -42,11 +42,11 @@
               <i class="fas fa-tools"></i>&nbsp; Herramientas
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="salary"><i class="fas fa-coins"></i>&nbsp; Salario Ordinario</a>  
-              <a class="dropdown-item" href="iggs"><i class="fas fa-medkit"></i>&nbsp; Iggs</a>
-              <a class="dropdown-item" href="employee"><i class="fas fa-user-friends"></i>&nbsp; Empleados</a>
+              <a class="dropdown-item" href="@salary_url@"><i class="fas fa-coins"></i>&nbsp; Salario Ordinario</a>  
+              <a class="dropdown-item" href="@iggs_url@"><i class="fas fa-medkit"></i>&nbsp; Iggs</a>
+              <a class="dropdown-item" href="@employee_url@"><i class="fas fa-user-friends"></i>&nbsp; Empleados</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="worksheet"><i class="fas fa-money-check-alt"></i>&nbsp; Generacion de Planillas</a>
+              <a class="dropdown-item" href="@worksheet_url@"><i class="fas fa-money-check-alt"></i>&nbsp; Generacion de Planillas</a>
             </div>
           </li>
         </ul>
