@@ -18,6 +18,7 @@ ad_page_contract {
 } {
     item_id:optional
     { form_mode "edit" }
+    {return_url [get_referrer]}
 }
 
 set user_id [ad_conn user_id]
@@ -30,8 +31,8 @@ ad_form -name employee_form -export { user_id package_id } -mode $form_mode -for
     { name:text {label "Name"} }
     { lastname:text {label "Lastname"} }
     { email:text {label "E-mail"} }
-    { start_date:date {label "Start Date: "} {format {MONTH DD YYYY} } }
-    { inactivity_date:date {label "Inactivity Date: "} {format {MONTH DD YYYY} } }
+    { start_date:date,optional {label "Start Date: "} {format {MONTH DD YYYY} } }
+    { inactivity_date:date,optional {label "Inactivity Date: "} {format {MONTH DD YYYY} } }
 } -select_query_name select_employee \
 -new_data {
     set context_id [ad_conn package_id]
@@ -50,6 +51,5 @@ ad_form -name employee_form -export { user_id package_id } -mode $form_mode -for
         select acs_object__update_last_modified(:item_id,:user_id,:ip_address)
     }
 } -after_submit {
-    ad_returnredirect index
-    ad_script_abort
+    template::forward $return_url
 }

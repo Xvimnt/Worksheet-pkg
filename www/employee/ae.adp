@@ -30,7 +30,7 @@
     <hr>
     <div class="row">
         <div class="col-md-12 text-center">
-            <button class="btn btn-warning" onclick="save_employee()">Save</button>
+            <button class="btn btn-warning" type="submit"><i class="fas fa-save"></i>&nbsp; Save</button>
         </div>
     </div>
 </formtemplate>
