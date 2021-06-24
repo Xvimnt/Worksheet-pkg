@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="favorites.php" class="card border-bottom-primary shadow h-100 py-2">
+                <a href="@iggs_url@" class="card border-bottom-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -42,7 +42,7 @@
         <br>
         <div class="row">
             <div class="col-md-6">
-                <a href="search.php" class="card border-bottom-primary shadow h-100 py-2">
+                <a href="@employee_url@" class="card border-bottom-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -57,7 +57,7 @@
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="favorites.php" class="card border-bottom-primary shadow h-100 py-2">
+                <a href="@worksheet_url@" class="card border-bottom-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
