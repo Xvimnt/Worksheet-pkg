@@ -12,7 +12,7 @@
       <div class="row"> 
           <div class="col-md-12 text-center">
                <!-- Button trigger modal -->
-              <button type="button" class="btn btn-warning" onclick="new_salary()">
+              <button type="button" class="btn btn-warning" onclick="new_item()">
                 <i class="fas fa-plus"></i>&nbsp; Añadir Fecha
               </button>
           </div>
@@ -30,7 +30,24 @@
         </button>
       </div>
       <div class="modal-body"  id="dialog-body">
-        
+        <div class="row">
+          <div class="col-md-12">
+            <label for="name">Año:</label> <span class="text-danger">* (requerido)</span>
+            <input type="text" name="name" id="name" class="form-control" required>    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="plural">Cuota (Q.):</label> <span class="text-danger">* (requerido)</span>
+            <input type="text" name="plural" id="plural" class="form-control" required>    
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-warning"><i class="fas fa-save"> Guardar</i></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -82,10 +99,7 @@
       $('#dialog').modal({show:true});
   }
 
-  function new_salary() {
-      $('#dialog-body').load('@salary_url@', function() {
-           // alert('Load was performed.');
-      });
+  function new_item() {
       $('#dialog').modal({show:true});
   }
 </script>

@@ -30,7 +30,24 @@
         </button>
       </div>
       <div class="modal-body"  id="dialog-body">
-        
+        <div class="row">
+          <div class="col-md-12">
+            <label for="name">Año:</label> <span class="text-danger">* (requerido)</span>
+            <input type="text" name="name" id="name" class="form-control" required>    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="plural">Cuota (Q.):</label> <span class="text-danger">* (requerido)</span>
+            <input type="text" name="plural" id="plural" class="form-control" required>    
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button class="btn btn-warning"><i class="fas fa-save"> Guardar</i></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -83,9 +100,6 @@
   }
 
   function new_salary() {
-      $('#dialog-body').load('@salary_url@', function() {
-           // alert('Load was performed.');
-      });
       $('#dialog').modal({show:true});
   }
 </script>
