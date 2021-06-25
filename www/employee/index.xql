@@ -7,8 +7,8 @@
          employee.name,
          employee.lastname,
          employee.email,
-         to_char(employee.start_date, 'YYYY-MM-DD') as start_date,
-         to_char(employee.inactivity_date, 'YYYY-MM-DD') as inactivity_date,
+         to_char(employee.start_date, 'DD/MM/YYYY') as start_date,
+         to_char(employee.inactivity_date, 'DD/MM/YYYY') as inactivity_date,
          employee.status
          from employee employee,
          acs_objects obj

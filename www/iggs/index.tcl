@@ -11,6 +11,6 @@ set category_id 3099
 
 # Url for ctrl-category
 #
-set salary_url "/ctrl-categories/add-edit?parent_category_id=$category_id";
-set salary_delete_url "/ctrl-categories/delete";
-set data_url "../json/category-ajax?category_id=$category_id"
+set ae_url "../category/ae?parent_category_id=$category_id"
+set delete_url "../category/delete";
+set data_url "../category/ajax?category_id=$category_id"

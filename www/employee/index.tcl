@@ -6,7 +6,7 @@ ad_page_contract {
 } { }
 
 set user_id [ad_conn user_id]
-set form_url "ae"
+set ae_url "ae"
 set delete_url "delete"
 set user_id [ad_conn user_id]
 set package_id [ad_conn package_id]
@@ -45,12 +45,12 @@ template::list::create -name employee_list \
         set orderby_clause "ORDER BY start_date asc"
     }
 
-db_multirow -extend { item_url return_url delete_button complete_button cancel_button} employee_mr get_employees {} {
+db_multirow -extend { item_url return_url delete_button edit_button adds_button} employee_mr get_employees {} {
     set form_mode display
-    set item_url "todo-ae?[export_vars -url { item_id form_mode }]"
     # set status_text [todo::get_status_label $status ]
+    set item_url "ae?[export_vars -url { item_id form_mode }]"
     set return_url [util_get_current_url]
-    set delete_button "<button type='button' class='btn btn-danger' onclick='delete_item($item_id)'>Delete</button>"
-    set complete_button "<button type='button' class='btn btn-success' onclick='complete_item($item_id)'>Complete</button>"
-    set cancel_button "<button type='button' class='btn btn-warning' onclick='cancel_item($item_id)'>Cancel</button>"
+    set adds_button {<button type="button" class="btn btn-info" onclick="prompt_request('$adds_url?item_id=$item_id')" title="Bonificaciones"><i class="fas fa-file-invoice-dollar"></i></button>}
+    set delete_button "<button type='button' class='btn btn-danger' onclick='delete_item($item_id)' title='Eliminar'><i class='fas fa-trash'></i></button>"
+    set edit_button "<button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#dialog\" onclick=\"prompt_request('$ae_url?item_id=$item_id')\"  title=\"Editar\"><i class=\"fas fa-check\"></i></button>"
 }

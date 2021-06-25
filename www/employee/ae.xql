@@ -7,8 +7,8 @@
             :name,
             :lastname,
             :email,
-            ''t'',
-            to_date(:due_date, 'YYYY MM DD'),
+            't',
+            to_date(:start_date, 'DD/MM/YYYY'),
             NULL,
             NULL,
             :ip_address,
@@ -22,8 +22,8 @@
          select employee.name,
          employee.lastname,
          employee.email,
-         to_char(employee.start_date, 'YYYY-MM-DD') as start_date,
-         to_char(employee.inactivity_date, 'YYYY-MM-DD') as inactivity_date,
+         to_char(employee.start_date, 'DD/MM/YYYY') as start_date,
+         to_char(employee.inactivity_date, 'DD/MM/YYYY') as inactivity_date,
          employee.status
          from employee employee,
          acs_objects obj
@@ -40,8 +40,8 @@
          lastname = :lastname,
          email = :email,
          status = :status,
-         start_date = to_date(:start_date, 'YYYY MM DD'),
-         inactivity_date = to_date(:inactivity_date, 'YYYY MM DD')
+         start_date = to_date(:start_date, 'DD/MM/YYYY'),
+         inactivity_date = to_date(:inactivity_date, 'DD/MM/YYYY')
          where item_id = :item_id
       </querytext>
    </fullquery>
