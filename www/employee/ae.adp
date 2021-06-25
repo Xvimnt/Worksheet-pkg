@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-12">
             <label for="start_date">Fecha de Inicio: </label> <span class="text-danger"> * (required)</span>
-            <formwidget id="start_date" type="validDate" class="form-control" required>
+            <formwidget id="start_date" class="form-control" required>
         </div>
     </div>
     <hr>
