@@ -15,7 +15,6 @@
          where obj.object_id = employee.item_id
          and obj.creation_user = :user_id
          and obj.context_id = :package_id
-        $orderby_clause
       </querytext>
    </fullquery>
 </queryset>
