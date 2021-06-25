@@ -17,7 +17,7 @@ RETURNS integer AS '
         v_type varchar;
 
     BEGIN
-        v_type := ''employee'';
+        v_type := ''employee_item'';
      
         v_id := acs_object__new(
             p_item_id,

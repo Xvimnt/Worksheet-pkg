@@ -31,7 +31,8 @@ ad_form -name employee_form -export { user_id package_id } -mode $form_mode -for
     { name:text {label "Name"} }
     { lastname:text {label "Lastname"} }
     { email:text {label "E-mail"} }
-    { start_date:date,optional {label "Start Date: "} {format {MONTH DD YYYY} } }
+    { status:text,optional }
+    { start_date:text {label "Start Date: "} {format {DD/MM/YYYY} } }
     { inactivity_date:date,optional {label "Inactivity Date: "} {format {MONTH DD YYYY} } }
 } -select_query_name select_employee \
 -new_data {

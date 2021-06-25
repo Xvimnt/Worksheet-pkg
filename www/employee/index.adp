@@ -7,25 +7,28 @@
       <div class="row">
         <div class="col-md-12">
             <table class="table" id="myTable" width="100%">
-              <thead class="bg-warning">
+              <thead class="bg-warning font-weight-bold">
                   <tr>
-                      <td scope="col">Options</td>
-                      <td scope="col">Name</td>
-                      <td scope="col">Lastname</td>
-                      <td scope="col">Start Date</td>
+                      <td scope="col" class="text-center">Opciones</td>
+                      <td scope="col">Nombre</td>
+                      <td scope="col">Apellido</td>
+                      <td scope="col">E-mail</td>
+                      <td scope="col">Fecha de Inicio</td>
                   </tr>
               </thead>
               <tbody>
                   <multiple name="employee_mr">
                           <tr scope="row">
-                              <td width="50px">
-                                  <div class="btn-group" role="group" aria-label="Options">
+                              <td width="15%" class="text-center">
+                                  <div class="btn-group" role="group" aria-label="Opciones">
+                                      @employee_mr.adds_button;noquote@
                                       @employee_mr.edit_button;noquote@
                                       @employee_mr.delete_button;noquote@
                                   </div>
                               </td>
                               <td>@employee_mr.name@</td>
                               <td>@employee_mr.lastname@</td>
+                              <td>@employee_mr.email@</td>
                               <td>@employee_mr.start_date@</td>
                           </tr>  
                   </multiple>
@@ -36,7 +39,7 @@
       <div class="row"> 
           <div class="col-md-12 text-center">
                <!-- Button trigger modal -->
-              <button type="button" class="btn btn-warning" onclick="new_item()">
+              <button type="button" class="btn btn-warning" onclick="prompt_request('@ae_url@')">
                 <i class="fas fa-plus"></i>&nbsp; Añadir Empleado
               </button>
           </div>
@@ -67,33 +70,14 @@
         });
     });
 
-    function new_item() {
-        $('#dialog-body').load('@form_url@', function() {
-             // alert('Load was performed.');
-        });
-        $('#dialog').modal({show:true});
-    }
+  function prompt_request(url) {
+      $('#dialog-body').load(url, function() {
+           // alert('Load was performed.');
+      });
+      $('#dialog').modal({show:true});
+  }
 
-    async function complete_item(item_id) {
-        $.ajax({
-            type: "GET",
-            url: "@form_url@?item_id="+item_id+"&new_status=c",
-            success: function (data, textStatus, jqXHR) {
-                
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Error Loading: "+errorThrown)
-            },
-            always: function (jqXHR, textStatus, errorThrown) {
-                alert("always Loading: " + jqXHR)
-            },
-        });
-        setTimeout(function() { 
-            window.location.reload();
-        }, 500);
-    }
-
-    function delete_item( item_id ) {
+ function delete_item( item_id ) {
         Swal.fire({
             title: 'Do you want to delete this item?',
             showCancelButton: true,
@@ -122,5 +106,4 @@
             window.location.reload();
         }, 500);
     }
-
 </script>

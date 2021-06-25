@@ -13,4 +13,4 @@ ad_page_contract {
 permission::require_permission -object_id $item_id -privilege delete
 set user_id [ad_conn user_id]
 
-db_dml delete_task {}
+db_dml delete_employee {}
