@@ -14,6 +14,7 @@
                       <td scope="col">Apellido</td>
                       <td scope="col">E-mail</td>
                       <td scope="col">Fecha de Inicio</td>
+                      <td scope="col">Status</td>
                   </tr>
               </thead>
               <tbody>
@@ -30,6 +31,16 @@
                               <td>@employee_mr.lastname@</td>
                               <td>@employee_mr.email@</td>
                               <td>@employee_mr.start_date@</td>
+                              <td>
+                                <switch @employee_mr.status@>
+                                  <case value="t">
+                                    Activo
+                                  </case>
+                                  <case value="f">
+                                    Inactivo
+                                  </case>
+                                </switch>
+                              </td>
                           </tr>  
                   </multiple>
               </tbody>    
@@ -77,24 +88,23 @@
       $('#dialog').modal({show:true});
   }
 
- function delete_item( item_id ) {
+ function change_status( item_id, status ) {
         Swal.fire({
-            title: 'Do you want to delete this item?',
+            title: '¿Quieres cambiarle el estado a este elemento?',
             showCancelButton: true,
             confirmButtonText: `Yes`,
             icon: 'warning',
             }).then((result) => {
                 if (result.isConfirmed) {
-                   post_delete(item_id);
+                   post_delete(item_id, status);
                 }
             })  
     }
 
-    function post_delete(item_id) {
+    function post_delete(item_id, status) {
         $.ajax({
-            type: "POST",
-            url: "@delete_url@",
-            data: {item_id: item_id},
+            type: "GET",
+            url: "@status_url@?item_id="+item_id+"&status="+status,
             success: function (data, textStatus, jqXHR) {
                 window.location.reload();
             },

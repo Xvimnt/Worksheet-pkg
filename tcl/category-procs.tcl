@@ -63,3 +63,18 @@ ad_proc -public category::export::get_recursive_json_str {
     append category_json_str "\}" 
     return $category_json_str
 }
+
+ad_proc -public category::export::get_quota_by_year {
+    -year:required
+    -parent_id:required
+} {
+    Return the plural of the category by filtering name
+    @option year the ctrl_categories table name
+    @option parent_id the ctrl_categories table parent_id
+} {
+    db_0or1row select "" -column_array category_row
+    if {![info exists category_row]} {
+        return 0;
+    }
+    return $category_row(plural)
+}
