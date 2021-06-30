@@ -12,6 +12,7 @@
          employee employee,
          acs_objects obj
          where obj.object_id = bonification.item_id
+         and employee.item_id = :employee_id
          and bonification.employee_id = employee.item_id
          and obj.creation_user = :user_id
          and obj.context_id = :package_id

@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Worksheet Employees</title>
     <link rel="icon" href="https://image.flaticon.com/icons/png/512/2891/2891526.png">
     <!-- jQuery -->
@@ -46,7 +47,8 @@
               <a class="dropdown-item" href="@iggs_url@"><i class="fas fa-medkit"></i>&nbsp; Iggs</a>
               <a class="dropdown-item" href="@employee_url@"><i class="fas fa-user-friends"></i>&nbsp; Empleados</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="@worksheet_url@"><i class="fas fa-money-check-alt"></i>&nbsp; Generacion de Planillas</a>
+              <a class="dropdown-item" href="@worksheet_url@"><i class="fas fa-money-check-alt"></i>&nbsp; Generaci&oacute;n de Planillas</a>
+              <a class="dropdown-item" href="@worksheet_url@/edition"><i class="fas fa-edit"></i>&nbsp; Edici&oacute;n de Planillas</a>
             </div>
           </li>
         </ul>

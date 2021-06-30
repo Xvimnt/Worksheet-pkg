@@ -47,3 +47,29 @@ RETURNS VOID AS '
         PERFORM acs_object__delete(p_item_id);
     END;
 ' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION employee_delete_inactive ()
+RETURNS VOID AS '
+    BEGIN 
+        delete 
+        from bonification
+        where employee_id 
+        in (
+            select employee_id
+            from employee
+            where status = ''f''
+        );
+
+        delete 
+        from worksheet_detail
+        where employee_id 
+        in (
+            select employee_id
+            from employee
+            where status = ''f''
+        );
+        delete
+        from employee
+        where status = ''f'';
+    END;
+' LANGUAGE 'plpgsql';

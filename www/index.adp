@@ -72,5 +72,24 @@
                 </a>
             </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="@worksheet_edition_url@" class="card border-bottom-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Edici&oacute;n de Planillas</div>
+                                <small class="mb-0 font-weight-bold text-primary">ir al m&oacute;dulo <i class="fas fa-caret-right"></i></small>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-edit fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br>
     </div>
 </div>
