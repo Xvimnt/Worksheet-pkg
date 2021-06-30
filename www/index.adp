@@ -91,12 +91,5 @@
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-6">
-                <a class="btn btn-warning" href="inactive">Delete Inactive</a>
-                <a class="btn btn-warning" href="uppercase">Uppercase</a>
-                <a class="btn btn-warning" href="notification">Mail</a>
-            </div>
-        </div>
     </div>
 </div>
